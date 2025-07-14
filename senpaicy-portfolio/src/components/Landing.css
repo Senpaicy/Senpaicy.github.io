@@ -1,0 +1,22 @@
+.landing {
+    text-align: center;
+    padding: 50px;
+    background-color: var(--soft-green);
+  }
+  
+  .landing h1 {
+    font-size: 2.5rem;
+    color: var(--lilac);
+  }
+  
+  .landing p {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+  }
+  
+  .character-placeholder img {
+    width: 150px;
+    height: auto;
+    margin-top: 20px;
+  }
+  
