@@ -52,15 +52,15 @@ export function HobbyCard({ name, type, level, stats, description, image, imageP
   };
 
   return (
-    <div className="relative w-96 h-[650px] cursor-pointer" onClick={handleCardClick}>
+    <div className="relative w-72 sm:w-80 lg:w-96 h-[500px] sm:h-[600px] lg:h-[650px] cursor-pointer" onClick={handleCardClick}>
       <div className={`absolute inset-0 transition-transform duration-700 transform-style-preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
         
         {/* Front of Card */}
         <Card className={`absolute inset-0 w-full h-full overflow-hidden border-2 ${rarityBorders[rarity]} bg-gradient-to-b from-card to-muted/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] backface-hidden`}>
           {/* Header */}
-          <div className="p-4 bg-gradient-to-r from-primary/10 to-accent/10 border-b border-border">
+          <div className="p-3 sm:p-4 bg-gradient-to-r from-primary/10 to-accent/10 border-b border-border">
             <div className="flex justify-between items-center mb-2">
-              <h3 className="text-xl font-bold text-foreground">{name}</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground">{name}</h3>
               <Badge className={`${rarityColors[rarity]} text-white text-xs px-2 py-1`}>
                 Lv. {level}
               </Badge>
@@ -70,8 +70,8 @@ export function HobbyCard({ name, type, level, stats, description, image, imageP
             </Badge>
           </div>
 
-          {/* Character Image - Larger */}
-          <div className="h-80 overflow-hidden bg-gradient-to-br from-bear-cream to-bear-light-brown relative">
+          {/* Character Image - Responsive */}
+          <div className="h-48 sm:h-64 lg:h-80 overflow-hidden bg-gradient-to-br from-bear-cream to-bear-light-brown relative">
             <div 
               className="w-full h-full bg-cover bg-center transform hover:scale-105 transition-transform duration-500"
               style={{ 
@@ -83,9 +83,9 @@ export function HobbyCard({ name, type, level, stats, description, image, imageP
           </div>
 
           {/* Stats */}
-          <div className="p-4 flex-1">
-            <div className="space-y-3">
-              <h4 className="font-semibold text-sm text-primary mb-2">Bear Stats</h4>
+          <div className="p-3 sm:p-4 flex-1">
+            <div className="space-y-2 sm:space-y-3">
+              <h4 className="font-semibold text-xs sm:text-sm text-primary mb-2">Bear Stats</h4>
               {Object.entries(stats).map(([key, value]) => (
                 <div key={key} className="space-y-1">
                   <div className="flex justify-between items-center">
@@ -96,7 +96,7 @@ export function HobbyCard({ name, type, level, stats, description, image, imageP
                   </div>
                   <Progress 
                     value={value} 
-                    className="h-2 bg-muted"
+                    className="h-1.5 sm:h-2 bg-muted"
                   />
                 </div>
               ))}
@@ -107,17 +107,17 @@ export function HobbyCard({ name, type, level, stats, description, image, imageP
           <div className={`h-2 ${rarityColors[rarity]}`} />
           
           {/* Flip indicator */}
-          <div className="absolute bottom-4 right-4 text-xs text-muted-foreground bg-background/80 rounded-full px-2 py-1">
-            💭 Click to flip
+          <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 text-xs text-muted-foreground bg-background/80 rounded-full px-2 py-1">
+            💭 Flip
           </div>
         </Card>
 
         {/* Back of Card */}
         <Card className={`absolute inset-0 w-full h-full overflow-hidden border-2 ${rarityBorders[rarity]} bg-gradient-to-b from-card to-muted/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] backface-hidden rotate-y-180`}>
           {/* Header */}
-          <div className="p-4 bg-gradient-to-r from-primary/10 to-accent/10 border-b border-border">
+          <div className="p-3 sm:p-4 bg-gradient-to-r from-primary/10 to-accent/10 border-b border-border">
             <div className="flex justify-between items-center mb-2">
-              <h3 className="text-xl font-bold text-foreground">{name}</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground">{name}</h3>
               <Badge className={`${rarityColors[rarity]} text-white text-xs px-2 py-1`}>
                 Lv. {level}
               </Badge>
@@ -127,8 +127,8 @@ export function HobbyCard({ name, type, level, stats, description, image, imageP
             </Badge>
           </div>
 
-          {/* Character Image - Larger */}
-          <div className="h-80 overflow-hidden bg-gradient-to-br from-bear-cream to-bear-light-brown relative">
+          {/* Character Image - Responsive */}
+          <div className="h-48 sm:h-64 lg:h-80 overflow-hidden bg-gradient-to-br from-bear-cream to-bear-light-brown relative">
             <div 
               className="w-full h-full bg-cover bg-center transform hover:scale-105 transition-transform duration-500"
               style={{ 
@@ -140,10 +140,10 @@ export function HobbyCard({ name, type, level, stats, description, image, imageP
           </div>
 
           {/* Description */}
-          <div className="p-6 flex-1 flex items-center justify-center">
+          <div className="p-4 sm:p-6 flex-1 flex items-center justify-center">
             <div className="text-center">
-              <div className="text-6xl mb-4">💭</div>
-              <p className="text-lg text-muted-foreground italic leading-relaxed">
+              <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">💭</div>
+              <p className="text-sm sm:text-lg text-muted-foreground italic leading-relaxed">
                 "{description}"
               </p>
             </div>
@@ -153,8 +153,8 @@ export function HobbyCard({ name, type, level, stats, description, image, imageP
           <div className={`h-2 ${rarityColors[rarity]}`} />
           
           {/* Flip indicator */}
-          <div className="absolute bottom-4 right-4 text-xs text-muted-foreground bg-background/80 rounded-full px-2 py-1">
-            📊 Click to flip
+          <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 text-xs text-muted-foreground bg-background/80 rounded-full px-2 py-1">
+            📊 Stats
           </div>
         </Card>
       </div>

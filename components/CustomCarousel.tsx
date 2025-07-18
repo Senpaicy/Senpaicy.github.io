@@ -7,7 +7,7 @@ interface CustomCarouselProps {
 
 const PawPrint = ({ className = "", direction = "left" }: { className?: string; direction?: "left" | "right" }) => (
   <svg 
-    className={`w-6 h-6 ${className}`} 
+    className={`w-4 h-4 sm:w-6 sm:h-6 ${className}`} 
     viewBox="0 0 24 24" 
     fill="currentColor"
     style={{ transform: direction === "right" ? "scaleX(-1)" : "none" }}
@@ -20,9 +20,40 @@ export function CustomCarousel({ children, className = "" }: CustomCarouselProps
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [screenSize, setScreenSize] = useState('desktop');
   
+  // Detect screen size
+  useEffect(() => {
+    const checkScreenSize = () => {
+      if (window.innerWidth < 640) {
+        setScreenSize('mobile');
+      } else if (window.innerWidth < 1024) {
+        setScreenSize('tablet');
+      } else {
+        setScreenSize('desktop');
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   const totalItems = children.length;
-  const itemsToShow = 3.5; // Show 3.5 cards
+  
+  // Responsive items to show
+  const getItemsToShow = () => {
+    switch (screenSize) {
+      case 'mobile':
+        return 1.2; // Show 1.2 cards on mobile
+      case 'tablet':
+        return 2.5; // Show 2.5 cards on tablet
+      default:
+        return 3.5; // Show 3.5 cards on desktop
+    }
+  };
+
+  const itemsToShow = getItemsToShow();
   const maxIndex = Math.max(0, totalItems - Math.floor(itemsToShow));
 
   // Handle navigation
@@ -91,19 +122,19 @@ export function CustomCarousel({ children, className = "" }: CustomCarouselProps
     if (isCenter) {
       return {
         opacity: 1,
-        transform: 'scale(1)',
+        transform: screenSize === 'mobile' ? 'scale(1)' : 'scale(1)',
         transition: 'all 0.5s ease'
       };
     } else if (isPartiallyVisible) {
       return {
-        opacity: 0.6,
-        transform: 'scale(0.95)',
+        opacity: screenSize === 'mobile' ? 0.4 : 0.6,
+        transform: screenSize === 'mobile' ? 'scale(0.9)' : 'scale(0.95)',
         transition: 'all 0.5s ease'
       };
     } else {
       return {
-        opacity: 0.3,
-        transform: 'scale(0.9)',
+        opacity: 0.2,
+        transform: screenSize === 'mobile' ? 'scale(0.8)' : 'scale(0.9)',
         transition: 'all 0.5s ease'
       };
     }
@@ -126,7 +157,7 @@ export function CustomCarousel({ children, className = "" }: CustomCarouselProps
                 ...getItemStyle(index)
               }}
             >
-              <div className="px-2">
+              <div className="px-1 sm:px-2">
                 {child}
               </div>
             </div>
@@ -139,8 +170,8 @@ export function CustomCarousel({ children, className = "" }: CustomCarouselProps
         onClick={goToPrevious}
         disabled={currentIndex === 0}
         className={`
-          absolute left-0 top-1/2 -translate-y-1/2 z-10
-          w-16 h-16 bg-primary/90 hover:bg-primary rounded-full 
+          absolute left-0 sm:left-0 top-1/2 -translate-y-1/2 z-10
+          w-12 h-12 sm:w-16 sm:h-16 bg-primary/90 hover:bg-primary rounded-full 
           flex items-center justify-center text-primary-foreground 
           shadow-lg hover:shadow-xl transition-all duration-300 
           hover:scale-110 paw-wiggle
@@ -156,8 +187,8 @@ export function CustomCarousel({ children, className = "" }: CustomCarouselProps
         onClick={goToNext}
         disabled={currentIndex >= maxIndex}
         className={`
-          absolute right-0 top-1/2 -translate-y-1/2 z-10
-          w-16 h-16 bg-primary/90 hover:bg-primary rounded-full 
+          absolute right-0 sm:right-0 top-1/2 -translate-y-1/2 z-10
+          w-12 h-12 sm:w-16 sm:h-16 bg-primary/90 hover:bg-primary rounded-full 
           flex items-center justify-center text-primary-foreground 
           shadow-lg hover:shadow-xl transition-all duration-300 
           hover:scale-110 paw-wiggle
@@ -169,13 +200,13 @@ export function CustomCarousel({ children, className = "" }: CustomCarouselProps
       </button>
 
       {/* Progress indicator */}
-      <div className="flex justify-center mt-6 space-x-2">
+      <div className="flex justify-center mt-4 sm:mt-6 space-x-1 sm:space-x-2">
         {Array.from({ length: maxIndex + 1 }, (_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`
-              w-2 h-2 rounded-full transition-all duration-300
+              w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300
               ${currentIndex === index 
                 ? 'bg-primary scale-125' 
                 : 'bg-primary/30 hover:bg-primary/60'

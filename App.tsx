@@ -243,11 +243,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
+      {/* Navigation - More responsive */}
       <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex justify-center">
-            <div className="flex items-center space-x-2 bg-muted/50 rounded-full px-8 py-3">
+            <div className="flex items-center space-x-1 sm:space-x-2 bg-muted/50 rounded-full px-4 sm:px-8 py-2 sm:py-3 overflow-x-auto">
               {[
                 "home",
                 "about",
@@ -260,7 +260,7 @@ export default function App() {
                   key={item}
                   onClick={() => scrollToSection(item)}
                   className={`
-                    px-4 py-2 rounded-full capitalize transition-all duration-300 text-sm
+                    px-2 sm:px-4 py-1 sm:py-2 rounded-full capitalize transition-all duration-300 text-xs sm:text-sm whitespace-nowrap
                     ${
                       activeSection === item
                         ? "bg-primary text-primary-foreground font-bold shadow-lg transform scale-105"
@@ -276,39 +276,42 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Landing Section */}
-      <section id="home" className="pt-24 pb-16 px-6">
+      {/* Landing Section - Centered on mobile */}
+      <section id="home" className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h1 className="text-5xl md:text-6xl tracking-tight">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            {/* Text content - centered on mobile */}
+            <div className="space-y-4 sm:space-y-6 text-center lg:text-left">
+              <div className="space-y-3 sm:space-y-4">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl tracking-tight">
                   Hello, I'm{" "}
                   <span className="text-primary">Bear</span> 🐻
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-lg">
+                <p className="text-lg sm:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0">
                   A cozy creative who loves building delightful
                   digital experiences with warmth, care, and a
                   touch of whimsy.
                 </p>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Button
                   onClick={() => scrollToSection("projects")}
-                  className="bg-primary hover:bg-primary/90"
+                  className="bg-primary hover:bg-primary/90 w-full sm:w-auto"
                 >
                   View My Work
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => scrollToSection("contact")}
+                  className="w-full sm:w-auto"
                 >
                   Get In Touch
                 </Button>
               </div>
             </div>
 
+            {/* Image - centered and responsive */}
             <div className="flex justify-center">
               <div className="gentle-float">
                 <img
@@ -316,7 +319,7 @@ export default function App() {
                     image_44a6ba261837fe22898f7ac0d21476d40d8609ad
                   }
                   alt="Bear character waving hello"
-                  className="w-full max-w-md rounded-3xl shadow-2xl"
+                  className="w-full max-w-xs sm:max-w-sm lg:max-w-md rounded-3xl shadow-2xl"
                 />
               </div>
             </div>
@@ -327,19 +330,19 @@ export default function App() {
       {/* About Me Section */}
       <section
         id="about"
-        className="pt-24 pb-16 px-6 bg-muted/30"
+        className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 bg-muted/30"
       >
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl mb-4">About Me</h2>
-            <p className="text-xl text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl mb-3 sm:mb-4">About Me</h2>
+            <p className="text-lg sm:text-xl text-muted-foreground">
               Getting to know the bear behind the code
             </p>
           </div>
 
-          <Card className="p-8 shadow-lg">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4">
+          <Card className="p-6 sm:p-8 shadow-lg">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
+              <div className="space-y-4 text-center md:text-left">
                 <p>
                   Hi there! I'm a passionate developer and
                   designer who believes that technology should
@@ -365,8 +368,8 @@ export default function App() {
               </div>
 
               <div className="flex justify-center">
-                <div className="w-64 h-64 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full flex items-center justify-center">
-                  <div className="text-6xl">🐻</div>
+                <div className="w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full flex items-center justify-center">
+                  <div className="text-4xl sm:text-6xl">🐻</div>
                 </div>
               </div>
             </div>
@@ -374,19 +377,20 @@ export default function App() {
         </div>
       </section>
 
-      {/* Hobbies Section - Pokemon Card Carousel */}
-      <section id="hobbies" className="pt-24 pb-20 px-6">
+      {/* Hobbies Section - Fully responsive */}
+      <section id="hobbies" className="pt-20 sm:pt-24 pb-16 sm:pb-20 px-2 sm:px-6">
         <div className="max-w-[1800px] mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl mb-4">
+          <div className="text-center mb-12 sm:mb-16 px-4">
+            <h2 className="text-3xl sm:text-4xl mb-3 sm:mb-4">
               My Hobby Collection
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg sm:text-xl text-muted-foreground">
               Rare cards showcasing my bear adventures ✨
             </p>
           </div>
 
-          <div className="px-20">
+          {/* Responsive padding for carousel */}
+          <div className="px-4 sm:px-8 lg:px-20">
             <CustomCarousel className="w-full">
               {hobbies.map((hobby, index) => (
                 <div
@@ -408,8 +412,8 @@ export default function App() {
             </CustomCarousel>
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-sm text-muted-foreground">
+          <div className="text-center mt-8 sm:mt-12 px-4">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               🐾 Click paw prints or use horizontal
               scroll/trackpad • Click cards to flip them!
             </p>
@@ -420,31 +424,31 @@ export default function App() {
       {/* Projects Section */}
       <section
         id="projects"
-        className="pt-24 pb-16 px-6 bg-muted/30"
+        className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 bg-muted/30"
       >
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl mb-4">Featured Projects</h2>
-            <p className="text-xl text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl mb-3 sm:mb-4">Featured Projects</h2>
+            <p className="text-lg sm:text-xl text-muted-foreground">
               Some cozy creations I'm proud of
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {projects.map((project, index) => (
               <Card
                 key={index}
                 className="overflow-hidden hover:shadow-lg transition-shadow"
               >
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <Code className="w-12 h-12 text-primary/60" />
+                <div className="h-36 sm:h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                  <Code className="w-8 h-8 sm:w-12 sm:h-12 text-primary/60" />
                 </div>
-                <div className="p-6">
-                  <h3 className="mb-3">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
+                <div className="p-4 sm:p-6">
+                  <h3 className="mb-2 sm:mb-3">{project.title}</h3>
+                  <p className="text-muted-foreground mb-3 sm:mb-4 text-sm">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                     {project.tech.map((tech, techIndex) => (
                       <Badge
                         key={techIndex}
@@ -460,7 +464,7 @@ export default function App() {
                     size="sm"
                     className="w-full"
                   >
-                    <ExternalLink className="w-4 h-4 mr-2" />
+                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                     View Project
                   </Button>
                 </div>
@@ -470,19 +474,19 @@ export default function App() {
         </div>
       </section>
 
-      {/* Skills Section - Hexagon Layout */}
-      <section id="skills" className="pt-24 pb-16 px-6">
+      {/* Skills Section */}
+      <section id="skills" className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl mb-3 sm:mb-4">
               Skills &amp; Expertise
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg sm:text-xl text-muted-foreground">
               My cozy workshop toolkit in hexagonal harmony
             </p>
           </div>
 
-          <Card className="p-8 shadow-lg">
+          <Card className="p-4 sm:p-8 shadow-lg overflow-x-auto">
             <SkillHexagon skills={skills} />
           </Card>
         </div>
@@ -491,59 +495,59 @@ export default function App() {
       {/* Contact Section */}
       <section
         id="contact"
-        className="pt-24 pb-16 px-6 bg-muted/30"
+        className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 bg-muted/30"
       >
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl mb-4">Let's Connect</h2>
-            <p className="text-xl text-muted-foreground">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl mb-3 sm:mb-4">Let's Connect</h2>
+            <p className="text-lg sm:text-xl text-muted-foreground">
               Ready to create something cozy together?
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="p-8">
-              <h3 className="mb-6">Get In Touch</h3>
-              <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            <Card className="p-6 sm:p-8">
+              <h3 className="mb-4 sm:mb-6">Get In Touch</h3>
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <span>hello@bearportfolio.com</span>
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                  <span className="text-sm sm:text-base">hello@bearportfolio.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-primary" />
-                  <span>+1 (555) 123-4567</span>
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                  <span className="text-sm sm:text-base">+1 (555) 123-4567</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-primary" />
-                  <span>Forest Grove, OR</span>
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                  <span className="text-sm sm:text-base">Forest Grove, OR</span>
                 </div>
               </div>
 
-              <Separator className="my-6" />
+              <Separator className="my-4 sm:my-6" />
 
-              <div className="flex space-x-4">
-                <Button variant="outline" size="icon">
-                  <Github className="w-4 h-4" />
+              <div className="flex space-x-3 sm:space-x-4">
+                <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10">
+                  <Github className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
-                <Button variant="outline" size="icon">
-                  <Linkedin className="w-4 h-4" />
+                <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10">
+                  <Linkedin className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
-                <Button variant="outline" size="icon">
-                  <Mail className="w-4 h-4" />
+                <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10">
+                  <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
               </div>
             </Card>
 
-            <Card className="p-8">
-              <h3 className="mb-6">Send a Message</h3>
-              <form className="space-y-4">
+            <Card className="p-6 sm:p-8">
+              <h3 className="mb-4 sm:mb-6">Send a Message</h3>
+              <form className="space-y-3 sm:space-y-4">
                 <div>
                   <label className="block text-sm mb-2">
                     Name
                   </label>
                   <input
                     type="text"
-                    className="w-full p-3 rounded-lg bg-input-background border border-border focus:border-primary focus:outline-none transition-colors"
+                    className="w-full p-2 sm:p-3 rounded-lg bg-input-background border border-border focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                     placeholder="Your name"
                   />
                 </div>
@@ -553,7 +557,7 @@ export default function App() {
                   </label>
                   <input
                     type="email"
-                    className="w-full p-3 rounded-lg bg-input-background border border-border focus:border-primary focus:outline-none transition-colors"
+                    className="w-full p-2 sm:p-3 rounded-lg bg-input-background border border-border focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -563,7 +567,7 @@ export default function App() {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full p-3 rounded-lg bg-input-background border border-border focus:border-primary focus:outline-none transition-colors resize-none"
+                    className="w-full p-2 sm:p-3 rounded-lg bg-input-background border border-border focus:border-primary focus:outline-none transition-colors resize-none text-sm sm:text-base"
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -577,19 +581,19 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-border">
+      <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-border">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                <Heart className="w-3 h-3 text-primary-foreground" />
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center space-x-2 text-center md:text-left">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 bg-primary rounded-full flex items-center justify-center">
+                <Heart className="w-2 h-2 sm:w-3 sm:h-3 text-primary-foreground" />
               </div>
-              <span className="text-muted-foreground">
+              <span className="text-muted-foreground text-sm sm:text-base">
                 Made with care and a little bit of bear magic
               </span>
             </div>
 
-            <div className="text-sm text-muted-foreground">
+            <div className="text-xs sm:text-sm text-muted-foreground">
               © 2025 Bear Portfolio. All rights reserved.
             </div>
           </div>
