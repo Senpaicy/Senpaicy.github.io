@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>cindy's home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream: #FFF5E6;
+      --coffee: #6B4F3A;
+      --accent: #B9896D;
+      --muted: #8a7667;
+      --white: #ffffff;
+    }
+    /* page reset */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:"Quicksand",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    body{
+      background: linear-gradient(180deg,var(--cream),#fff);
+      color:var(--coffee);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+      display:flex;flex-direction:column;min-height:100vh;
+    }
+
+    /* header / nav */
+    .site {
+      max-width:980px;margin:0 auto;width:100%;
+      border:1px solid rgba(107,79,58,0.06);
+      background: rgba(255,255,255,0.6);
+      border-radius:18px;
+      box-shadow: 0 6px 18px rgba(107,79,58,0.06);
+      overflow:hidden;
+    }
+
+    header {
+      display:flex;align-items:center;justify-content:space-between;
+      padding:20px 28px;background:linear-gradient(90deg, rgba(107,79,58,0.03), rgba(185,137,109,0.02));
+      border-bottom:1px solid rgba(107,79,58,0.04);
+    }
+    .brand{
+      display:flex;gap:12px;align-items:center;
+    }
+    .logo{
+      width:52px;height:52px;border-radius:12px;
+      display:grid;place-items:center;font-weight:700;
+      background:linear-gradient(180deg,var(--coffee),var(--accent));
+      color:var(--white);box-shadow:0 4px 8px rgba(107,79,58,0.12);
+      font-size:20px;
+    }
+    .brand .title{font-weight:700;letter-spacing:0.2px}
+    .brand .sub{font-size:12px;color:var(--muted);margin-top:-4px}
+
+    nav {
+      display:flex;gap:10px;align-items:center;
+    }
+    nav a{
+      text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;
+      color:var(--coffee);border:1px solid transparent;
+    }
+    nav a:hover{background:rgba(185,137,109,0.08);border-color:rgba(107,79,58,0.06)}
+    nav a.active{
+      background:transparent;border:1px solid rgba(107,79,58,0.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+    }
+
+    /* main content */
+    main{padding:36px 28px}
+    .hero {
+      display:flex;gap:28px;align-items:center;
+      flex-wrap:wrap;
+    }
+    .hero .left {flex:1;min-width:240px}
+    .hero h1{margin:0;font-size:28px;color:var(--coffee)}
+    .hero p{margin:12px 0 0;color:var(--muted);line-height:1.5}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:26px}
+    .card{
+      background:var(--white);border-radius:14px;padding:18px;border:1px solid rgba(107,79,58,0.04);
+      box-shadow:0 6px 14px rgba(107,79,58,0.04);
+    }
+    .card h3{margin:0 0 8px;font-size:16px;color:var(--coffee)}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    footer{
+      margin-top:auto;padding:20px 28px;border-top:1px solid rgba(107,79,58,0.04);
+      background:linear-gradient(180deg, rgba(255,255,255,0), rgba(107,79,58,0.01));
+      font-size:13px;color:var(--muted);
+      display:flex;justify-content:space-between;align-items:center;
+    }
+
+    /* responsive */
+    @media (max-width:640px){
+      header{padding:14px}
+      .logo{width:44px;height:44px;font-size:18px}
+      .brand .title{font-size:15px}
+      main{padding:18px}
+      .hero h1{font-size:20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="site" role="document">
+    <header>
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="title">cindy's</div>
+          <div class="sub">cute + minimal portfolio</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <a href="index.html" class="active">home</a>
+        <a href="about.html">about me</a>
+        <a href="projects.html">projects</a>
+        <a href="blog.html">gallery</a>
+        <a href="contact.html">cv</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="left">
+          <h1>Hi — I'm Senpaicy ✨</h1>
+          <p>Welcome to my little corner of the internet. I build small, delightful things: cute UI, playful micro-interactions, and minimal websites.</p>
+          <div class="cards" aria-hidden="false">
+            <div class="card">
+              <h3>Featured — Moonlight app</h3>
+              <p>Simple UI for tracking nightly sketches.</p>
+            </div>
+            <div class="card">
+              <h3>Theme — Coffee & Cream</h3>
+              <p>A gentle palette built for calm portfolios.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="right" style="min-width:200px;max-width:260px;">
+          <div style="border-radius:12px;padding:18px;border:1px dashed rgba(107,79,58,0.06);text-align:center">
+            <img src="https://via.placeholder.com/160x160.png?text=avatar" alt="avatar" style="width:100%;border-radius:10px;display:block;margin-bottom:10px">
+            <div style="font-weight:700;color:var(--coffee)">Senpaicy</div>
+            <div style="font-size:13px;color:var(--muted)">developer & designer</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Made with ☕ & ❤️</div>
+      <div><a href="https://github.com/senpaicy" style="color:var(--muted);text-decoration:none">github.com/senpaicy</a></div>
+    </footer>
+  </div>
+</body>
+</html>
