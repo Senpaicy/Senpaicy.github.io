@@ -1,0 +1,27 @@
+:root {
+  --cream: #FFF5E6;
+  --coffee: #6B4F3A;
+  --accent: #B9896D;
+  --muted: #8a7667;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: var(--cream);
+  color: var(--coffee);
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+}
+a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,81 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--white);
+  border-bottom: 1px solid rgba(107,79,58,0.1);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand .logo {
+  background: var(--accent);
+  color: var(--white);
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.brand .title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--coffee);
+}
+
+.brand .sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--coffee);
+  font-weight: 500;
+}
+
+nav a.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: var(--white);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px 15px;
+    border: 1px solid rgba(107,79,58,0.1);
+    border-radius: 10px;
+  }
+  nav.show {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
