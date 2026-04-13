@@ -1,138 +1,392 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>cindy's</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-
-  <!-- Global + components + layout -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/layout.css">
-
-  <!-- Page specific -->
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/hobbies.css">
-
-
-</head>
-<body>
-  <div class="site" role="document">
-    <header>
-        <div class="brand">
-            <div class="logo">🐻</div>
-            <div>
-            <div class="title">cindy's</div>
-            <div class="sub">cute + minimal portfolio</div>
-            </div>
-        </div>
-
-        <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-
-        <nav aria-label="Primary">
-            <a href="index.html">home</a>
-            <a href="about.html">about</a>
-            <a href="projects.html">projects</a>
-            <a href="blog.html">gallery</a>
-            <a href="contact.html">cv</a>
-        </nav>
-        </header>
-
-
-    <main>
-      <section class="hero">
-        <div class="left">
-          <h1>hallo — i'm cindy</h1>
-          <p>welcome to my itty bitty smol tiny portfolio page. Please help yourself to all the cookies :3</p>
-          <div class="cards" aria-hidden="false">
-            <div class="card">
-              <h3>Featured — Moonlight app</h3>
-              <p>Simple UI for tracking nightly sketches.</p>
-            </div>
-            <div class="card">
-              <h3>Theme — Coffee & Cream</h3>
-              <p>A gentle palette built for calm portfolios.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="right" style="min-width:200px;max-width:260px;">
-          <div style="border-radius:12px;padding:18px;border:1px dashed rgba(107,79,58,0.06);text-align:center">
-            <img src="img/cindy.png" alt="avatar" style="width:100%;border-radius:10px;display:block;margin-bottom:10px">
-            <div style="font-weight:700;color:var(--coffee)">cindy</div>
-            <div style="font-size:13px;color:var(--muted)">developer & designer</div>
-          </div>
-        </div>
-      </section>
-
-<section class="hobby-slider-section">
-  <h2>My Cindy Cards</h2>
-  <div class="slider-container">
-    <button class="slider-btn prev">◀</button>
-    <div class="slider">  
-      <div class="card vertical">
-        <div class="card-tags">
-          <span>hungry</span>
-          <span>learning</span>
-          <span>creative</span>
-        </div>
-        <div class="card-image">
-          <img src="img/pastry_euthuaist_cindy.png" alt="Pastry Chef Cindy">
-        </div>
-        <div class="card-header">pastry chef cindy</div>
-        <div class="card-content">
-          loves cute cakes designs, not too sweet, the smell of sweets, and very glutinous.
-        </div>
+<html>
+  <header>
+    <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>cindy</title>
+  </header>
+  <div id="ink-cursor"></div>
+  <div id="scroll-prog"></div>
+  <div id="lantern-layer"></div>
+  <nav>
+    <div class="nav-logo">
+      <div class="stamp">
+        <a href="#home">
+          <img src="/files/favicon_io/favicon.ico" />
+        </a>
       </div>
 
-      <div class="card vertical">
-        <div class="card-tags">
-          <span>creative</span>
-          <span>noodles</span>
-          <span>hungry</span>
-        </div>
-        <div class="card-image">
-          <img src="img/noodle_chef_cindy.png" alt="Noodle Chef Cindy">
-        </div>
-        <div class="card-header">Noodle Chef Cindy</div>
-        <div class="card-content">
-          if i had to choose any dish to cook & eat for the rest of my life it'd be noodles!
-        </div>
-      </div>
-
-      <div class="card vertical">
-          <div class="card-tags">
-            <span>Creative</span>
-            <span>Visionary</span>
-            <span>Focused</span>
-          </div>
-          <div class="card-image">
-            <img src="img/botanist_cindy.png" alt="Artist Cindy">
-          </div>
-          <div class="card-header">Botanist Cindy</div>
-          <div class="card-content">
-            fresh veggiest 
-          </div>
-        </div>
-
-      </div>
-      <button class="slider-btn next">▶</button>
+      <div class="nav-name">cindy<small>張明君</small></div>
     </div>
-  </section>
+    <ul class="nav-links">
+      <li>
+        <a href="#home"
+          ><span class="zh">家</span><span class="en">home</span></a
+        >
+      </li>
+      <li>
+        <a href="#about"
+          ><span class="zh">关</span><span class="en">about</span></a
+        >
+      </li>
+      <li>
+        <a href="#work"
+          ><span class="zh">作</span><span class="en">work</span></a
+        >
+      </li>
+      <li>
+        <a href="#cv"><span class="zh">历</span><span class="en">cv</span></a>
+      </li>
 
+      <li>
+        <button class="theme-btn" id="theme-btn" title="Toggle dark mode">
+          <svg
+            class="theme-icon-sun"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg
+            class="theme-icon-lantern"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <line x1="12" y1="2" x2="12" y2="5" />
+            <line x1="12" y1="19" x2="12" y2="22" />
+            <rect
+              x="7"
+              y="5"
+              width="10"
+              height="14"
+              rx="5"
+              fill="rgba(255,150,40,0.3)"
+              stroke="currentColor"
+            />
+            <line x1="9" y1="8" x2="15" y2="8" stroke-width="1" />
+            <line x1="9" y1="12" x2="15" y2="12" stroke-width="1" />
+            <line x1="9" y1="16" x2="15" y2="16" stroke-width="1" />
+            <line x1="10" y1="22" x2="14" y2="22" />
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
 
+  <div class="site">
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>cindy is a<br /><em>discipline</em><br />of the patient hand.</h1>
+        <p>
+          a designer, developer, and engineer rooted in the quiet precision of
+          deliberate work. i build things that breathe slowly and hold their
+          weight.
+        </p>
+        <div class="btns">
+          <a href="#work" class="btn btn-r">view projects</a>
+          <a href="/files/2025_ZhangCindy_Resume.pdf" class="btn">download CV</a>
+        </div>
+        <div class="scroll-hint-text">scroll to unroll the scroll</div>
+      </div>
+      <div class="scroll-frame">
+        <div class="scroll-rod top"></div>
+        <div class="scroll-body" id="scroll-body">
+          <img
+            src="/files/me.jpg"
+            alt="Portrait in Qing dynasty ink wash style"
+          />
+        </div>
+        <div
+          class="scroll-rod bot"
+          id="bot-rod"
+          style="position: absolute; bottom: 0"
+        ></div>
+      </div>
+    </section>
 
-    </main>
+    <div class="div-line"><span class="div-char" id="about">·</span></div>
+
+    <section class="section">
+      <div class="sec-head">
+        <div>
+          <div class="ink-bar"></div>
+          <h2>about</h2>
+        </div>
+        <span class="zh">关于 · guānyú</span>
+      </div>
+      <div class="about-wrap">
+        <div class="about-portrait">
+          <img src="/files/me.jpg" alt="Portrait" />
+        </div>
+        <div class="about-text">
+          <p>
+            life carries its own weight. so when it came time to choose a theme
+            for my portfolio, i wanted the decision to mean something.
+          </p>
+          <p>
+            an html file is a blank canvas — boundless, open, full of quiet
+            possibility. i sat with that openness for a while, letting it
+            breathe, before something familiar surfaced: the serene world of
+            ancient chinese brush painting.
+          </p>
+          <p>
+            there's a stillness in that art form that i've always been drawn to.
+            the unhurried strokes, the soft balance of ink and space, the way
+            each piece says so much while leaving room for silence. it isn't
+            mine alone — it belongs to a long and honored tradition — but it
+            speaks to something in me.
+          </p>
+          <p>
+            what struck me most, though, were the stamps. small, deliberate, and
+            red against the quiet tones of the canvas — each one a mark of
+            identity, a signature woven into the work itself. every artist had
+            one. every stamp told you: this came from someone.
+          </p>
+          <p>
+            that felt right for a portfolio. so i made it my logo — a small red
+            mark that says the same thing: this is mine.
+          </p>
+          <p>
+            in my self-portrait, i chose to paint myself draped in a robe — or
+            perhaps a short hanfu — with a fox mask resting quietly on the
+            sleeve.
+          </p>
+          <p>
+            the fox, in the old stories, carries many meanings. prosperity.
+            wisdom. a certain elusive charm that draws the eye without demanding
+            it. it felt like the right companion to carry into this space.
+          </p>
+          <a
+            href="#work"
+            class="btn"
+            style="font-size: 12px; margin-top: 0.5rem"
+            >see my work</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <div class="div-line"><span class="div-char" id="work">·</span></div>
+
+    <section class="section">
+      <div class="sec-head">
+        <div>
+          <div class="ink-bar"></div>
+          <h2>projects</h2>
+        </div>
+        <span class="zh">作品 · zuòpǐn</span>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-tag">API & Visual Design</div>
+          <h3>the greenhouse dex</h3>
+          <p>
+            this project was born from a simple desire — to make the world of
+            gardening feel a little less overwhelming for those just finding
+            their way into it.
+          </p>
+          <p>
+            the greenhouse index is a guided space for beginners and curious
+            minds alike. at its core, an api call pulls rich botanical data,
+            transforming raw information into something personal and useful.
+            from there, the experience unfolds naturally — helping you
+            understand not just what to grow, but where and why.
+          </p>
+          <p>
+            perhaps trailing vines or a spider plant belong in your bathroom,
+            quietly working to keep mold at bay and the air a little fresher.
+            perhaps you've always wondered what a certain flower is trying to
+            say, or which herbs thrive best when kept close to one another. the
+            index holds those answers, along with the temperature needs of each
+            plant, so every corner of your space can be tended with intention.
+          </p>
+          <p>
+            it's less about having a green thumb — and more about knowing where
+            to begin.
+          </p>
+          <div class="proj-season">春 · spring 2026</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-tag">Interaction & Research</div>
+          <h3>key opinion leader</h3>
+          <p>
+            this project lives at the intersection of clarity and care — built
+            for the medical professionals who don't have time to wade through
+            complexity.
+          </p>
+          <p>
+            at its heart, it's a minimalistic tool — thoughtfully designed in
+            figma and brought to life through react — that allows doctors and
+            specialists to query information and reach one another for
+            consultations with ease. every design decision was made with
+            intention, stripping away the unnecessary so that what remains
+            simply works.
+          </p>
+          <p>
+            beneath the surface, python quietly does its work — scraping and
+            preserving medical publications into a postgres database, held
+            together by a flask framework. a living, breathing archive of
+            knowledge, always ready when it's needed most.
+          </p>
+          <div class="proj-season">夏 · summer</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-tag">API & Chat Servers</div>
+          <h3>spotify dating app</h3>
+          <p>
+            music has always had a way of finding the right people for one
+            another. this project simply gave that a little help.
+          </p>
+          <p>
+            leading a team of four, we set out to build a space where spotify
+            users could discover each other through the one thing they already
+            had in common — the music that moves them. the result was something
+            that felt less like an application, and more like a quiet room full
+            of people who just get it.
+          </p>
+          <p>
+            conversations could unfold in real time through socket.io, while
+            firebase worked gently in the background — encrypting user data,
+            handling the sensitive, and keeping trust intact. react kept our
+            development grounded and fluid, its reusable components allowing the
+            experience to grow without losing its shape. and beneath it all,
+            mongodb held everything together, drawing from the spotify api to
+            make each connection feel informed and alive. it wasn't just about
+            matching tastes. it was about what happens after the music starts.
+          </p>
+          <div class="proj-season">秋 · autumn 2022</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="div-line"><span class="div-char" id="cv">·</span></div>
+
+    <section class="section">
+      <div class="sec-head">
+        <div>
+          <div class="ink-bar"></div>
+          <h2>experience</h2>
+        </div>
+        <span class="zh">履历 · lǚlì</span>
+      </div>
+      <div class="cv-wrap">
+        <div class="cv-blurb">
+          <p>
+            there's something deeply human about the pull toward beauty. we
+            pause at a well-set table, linger on a perfectly composed
+            photograph, whisper — almost instinctively — that's beautiful.
+          </p>
+          <p>
+            we've been this way since the beginning, really. a caveman stumbles
+            upon a shiny rock and suddenly — priorities shift. i understand that
+            caveman. i am that caveman. i've always felt that pull. and
+            somewhere along the way, i decided i didn't just want to admire
+            beautiful things — i wanted to build them.
+          </p>
+          <p>
+            not beautiful in the way of something decorative and still.
+            beautiful in the way of something that works — that moves, that
+            responds, that earns its place on the screen. there's a difference
+            between a pretty image and a pretty experience, and that difference
+            lives in the details. the spacing that breathes just right. the
+            interaction that feels inevitable. the load time you never had to
+            think about.
+          </p>
+          <p>
+            pinterest taught me what it means to want to look at something.
+            google taught me what it means to trust something. i want to live in
+            the space between — where the first glance draws you in, and
+            everything beneath the surface keeps you there.
+          </p>
+          <p>performance. practicality. prettiness.</p>
+          <p>
+            not as a checklist — but as a philosophy. a quiet standard held up
+            against every project, every component, every line. because the most
+            beautiful thing a digital experience can be, is one that makes
+            someone's life feel a little more effortless — and a little more
+            alive.
+          </p>
+          <p>ooh. shiny.</p>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div>
+              <div class="tl-role">
+                appian associate - horizon industries ltd
+              </div>
+              <div class="tl-date">2024 – present · vienna va</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div>
+              <div class="tl-role">
+                scientific analytics summer intern · clinical mind
+              </div>
+              <div class="tl-date">2023 – 2024 · hoboken nj</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div>
+              <div class="tl-role">product intern · makereign</div>
+              <div class="tl-date">2022 – 2022 · cape town south africa</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div>
+              <div class="tl-role">
+                teaching assistant · stevens institute of technology
+              </div>
+              <div class="tl-date">2020 – 2023 · hoboken nj</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div>
+              <div class="tl-role">
+                b.s. computer science · stevens institute of technology
+              </div>
+              <div class="tl-date">2019 – 2023 · hoboken nj</div>
+            </div>
+          </div>
+          <a href="/files/2025_ZhangCindy_Resume.pdf" class="btn" style="font-size: 12px">download cv</a>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      <div>Made with ☕ & ❤️</div>
-      <div><a href="https://github.com/senpaicy" style="color:var(--muted);text-decoration:none">github.com/senpaicy</a></div>
-      <script src="js/header.js"></script>
-      <script src="js/hobbies.js"></script>
+      <div style="display: flex; align-items: center; gap: 10px">
+        <div class="stamp" style="width: 30px; height: 30px; font-size: 13px">
+          <a href="#home">
+            <img src="/files/favicon_io/favicon-16x16.png" />
+          </a>
+        </div>
+        <span class="ft-copy"> c made with ai (love) · 2026</span>
+      </div>
+      <ul class="ft-links">
+        <li><a href="#home">家 home</a></li>
+        <li><a href="#work">作 work</a></li>
+        <li><a href="#about">关 about</a></li>
+      </ul>
+      <link rel="script" href="script.js" />
     </footer>
   </div>
-</body>
 </html>
